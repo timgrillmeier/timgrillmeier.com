@@ -14,8 +14,10 @@
 
     <meta property="og:title" content="Tim Grillmeier">
     <meta property="og:description" content="Senior Developer, Digital IA/CX Consultant & Jam Baron based in Brisbane, Australia">
-    <meta property="og:image" content="img/tim_grillmeier_brisbane_developer.png">
+    <meta property="og:image" content="/img/tim_grillmeier_brisbane_developer.png">
     <meta property="og:url" content="https://timgrillmeier.com">
+    <meta property="twitter:image" content="/img/tim_grillmeier_brisbane_developer.png">
+    <meta property="twitter:site" content="@timgrillmeier">
     <meta name="twitter:card" content="summary_large_image">
 
     <title tabindex="1">Tim Grillmeier</title>
@@ -166,6 +168,10 @@
           font-weight: 500;
           font-size: 30px;
           line-height: 44px;
+        }
+
+        .box {
+          height: auto;
         }
 
         .box div {

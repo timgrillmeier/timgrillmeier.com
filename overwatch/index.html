@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class=" js pointerevents" lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-45402400-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-45402400-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+
+    <meta name="theme-color" content="#FF264E" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+
+    <meta property="og:title" content="Tim Grillmeier | Overwatch">
+    <meta property="og:description" content="The Overwatch loader, in CSS and HTML only.">
+    <meta property="og:image" content="/img/tim_grillmeier_brisbane_developer.png">
+    <meta property="og:url" content="https://timgrillmeier.com">
+    <meta property="twitter:image" content="/img/tim_grillmeier_brisbane_developer.png">
+    <meta property="twitter:site" content="@timgrillmeier">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title tabindex="1">Overwatch</title>
+    <script>
+      
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
+    <style>
+      /* BLACK      -     #000000 */
+      /* OFF-BLACK  -     #121112 */
+      /* MID-GREY   -     #888888 */
+      /* OFF-WHITE  -     #F8F8F8 */
+      /* WHITE      -     #FFFFFF */
+
+      .bg-black { background: #000; }
+      .bg-off-black { background: #121112; }
+      .bg-mid-grey { background: #888888; }
+      .bg-off-white { background: #F8F8F8; }
+      .bg-white { background: #FFF; }
+
+      html {
+        overflow: hidden;
+      }
+
+      body {
+        background: #b8cfe3;
+        color: #FFFFFF;
+        font-family: 'Heebo', sans-serif;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .box .valign {
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 800px;
+        padding: 60px;
+      }
+
+      /* Light mode */
+      @media (prefers-color-scheme: light) {
+        body {
+          background: #F8F8F8;
+          color: #121112;
+        }
+      }
+
+      /* Dark mode */
+      /*@media (prefers-color-scheme: dark) {
+        body {
+          background: #121112;
+          color: #FFFFFF;
+        }
+      }*/
+
+      .container-overwatch {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        padding: 0 !important;
+        margin: 0 auto;
+/*        background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Overwatch_circle_logo.svg');*/
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .container-overwatch .spinner-large-outside {
+        width: 370px;
+        height: 370px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -35px;
+        left: -35px;
+        border-radius: 180px;
+        border: 18px solid transparent;
+        border-right: 18px solid orange;
+      }
+
+      .container-overwatch .spinner-small-outside {
+        width: 410px;
+        height: 410px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -55px;
+        left: -55px;
+        border-radius: 300px;
+        border: 2px solid rgba(200,220,237,1);
+        border-left: 2px solid transparent;
+        border-top: 2px solid transparent;
+      }
+
+      .container-overwatch .spinner-small-outside-2 {
+        width: 410px;
+        height: 410px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -55px;
+        left: -55px;
+        border-radius: 300px;
+        border: 2px solid rgba(200,220,237,1);
+        border-left: 2px solid transparent;
+        border-top: 2px solid transparent;
+      }
+
+      .container-overwatch .spinner-small-outside-3 {
+        width: 410px;
+        height: 410px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -55px;
+        left: -55px;
+        border-radius: 300px;
+        border: 2px solid rgba(200,220,237,1);
+        border-top: 2px solid transparent;
+        border-right: 2px solid transparent;
+      }
+
+      .container-overwatch .spinner-wide-outside {
+        width: 750px;
+        height: 750px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -225px;
+        left: -225px;
+        border-radius: 375px;
+        border: 30px solid rgba(255,255,255,0.05);
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+      }
+
+      .rotate {
+        width: 100px;
+        animation: rotation 2.5s infinite linear;
+      }
+
+      .rotate-2 {
+        width: 100px;
+        animation: rotation 5s infinite linear;
+      }
+
+      .rotate-3 {
+        width: 100px;
+        animation: rotation 3s infinite linear;
+      }
+
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+
+      .rotate-reverse {
+        width: 100px;
+        animation: rotation-reverse 4s infinite linear;
+      }
+
+      @keyframes rotation-reverse {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(-359deg);
+        }
+      }
+
+      .container-overwatch .overwatch-body {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 42px solid #6d767b;
+        border-top: 42px solid transparent;
+        border-radius: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .container-overwatch .container-wedge {
+/*        background: lightblue;*/
+        opacity: 1;
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        position: absolute;
+        top: -235px;
+        transform: rotate(49deg) skewX(9deg) scaleY(cos(9deg));
+        overflow: hidden;
+      }
+
+      .container-overwatch .container-wedge .smol-overwatch-body {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 42px solid #6d767b;
+        border-radius: 150px;
+        position: absolute;
+        top: 153px;
+        left: 153px;
+        transform: rotate(0) skewX(350deg) scaleY(cos(0deg));
+        display: none;
+      }
+
+      .container-overwatch .container-wedge .smol-overwatch-body-highlight {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 42px solid transparent;
+        border-top: 42px solid orange;
+        border-left: 42px solid orange;
+        border-radius: 150px;
+        position: absolute;
+        top: 153px;
+        left: 153px;
+        transform: rotate(0) skewX(350deg) scaleY(cos(0deg));
+      }
+
+      .inner-sprite-left {
+        width: 92px;
+        height: 42px;
+        background: #6d767b;
+        position: absolute;
+        transform: rotate(-43.5deg);
+        top: 173px;
+        left: 51px;
+      }
+
+      .inner-sprite-left:after {
+        content: '';
+        border-top: 21px solid #6d767b;
+        border-right: 36.5px solid transparent;
+        border-bottom: 21px solid transparent;
+        border-left: 37px solid #6d767b;
+        position: absolute;
+        top: -12px;
+        right: -67px;
+        width: 0;
+        height: 0;
+        transform: skewX(351deg) rotate(337deg);
+      }
+
+      .inner-sprite-right {
+        width: 92px;
+        height: 42px;
+        background: #6d767b;
+        position: absolute;
+        transform: rotate(43.5deg);
+        top: 173px;
+        right: 51px;
+      }
+
+      .inner-sprite-right:before {
+        content: '';
+        border-top: 21px solid #6d767b;
+        border-right: 37px solid #6d767b;
+        border-bottom: 21px solid transparent;
+        border-left: 36.5px solid transparent;
+        position: absolute;
+        top: -12px;
+        left: -67px;
+        width: 0;
+        height: 0;
+        transform: skewX(9deg) rotate(23deg);
+      }
+
+      .container-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .container-background .square-1 {
+        width: 500px;
+        height: 500px;
+        border-radius: 50px;
+        top: 46%;
+        left: 70%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+      }
+
+      .container-background .square-2 {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        top: 16%;
+        left: 40%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 1s;
+      }
+
+      .container-background .square-3 {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        top: 86%;
+        left: 10%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 2.5s;
+      }
+
+       .container-background .square-4 {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        top: 16%;
+        left: 80%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 5s;
+      }
+
+      .container-background .square-5 {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        top: 6%;
+        left: 76%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 5.5s;
+      }
+
+      .track-slow-left {
+        animation: track-slow-left 9s infinite linear;
+        transition: opacity 400ms, margin 400ms;
+      }
+
+      .track-slow-right {
+        animation: track-slow-right 9s infinite linear;
+        transition: opacity 400ms, margin 400ms;
+      }
+
+      @keyframes track-slow-left {
+        0% {
+          margin-left: 0;
+          opacity: 0;
+        }
+        8% {
+          margin-left: -90px;
+        }
+        9% {
+          margin-left: -96px;
+        }
+        10% {
+          margin-left: -100px;
+          opacity: 0.1;
+        }
+        60% {
+          margin-left: -250px;
+          opacity: 0.1;
+        }
+        62% {
+          margin-left: -260px;
+        }
+        70% {
+          margin-left: -350px;
+          opacity: 0;
+        }
+        100% {
+          margin-left: -350px;
+          opacity: 0;
+        }
+      }
+
+      @keyframes track-slow-right {
+        0% {
+          margin-left: 0;
+          opacity: 0;
+        }
+        8% {
+          margin-left: 90px;
+        }
+        9% {
+          margin-left: 96px;
+        }
+        10% {
+          margin-left: 100px;
+          opacity: 0.1;
+        }
+        60% {
+          margin-left: 250px;
+          opacity: 0.1;
+        }
+        62% {
+          margin-left: 260px;
+        }
+        70% {
+          margin-left: 350px;
+          opacity: 0;
+        }
+        100% {
+          margin-left: 350px;
+          opacity: 0;
+        }
+      }
+
+    </style>
+  </head>
+  <body contenteditable="false">
+
+    <div class="container-background">
+      <div class="square-1 track-slow-left"></div>
+      <div class="square-2 track-slow-left"></div>
+      <div class="square-3 track-slow-left"></div>
+      <div class="square-4 track-slow-right"></div>
+      <div class="square-5 track-slow-right"></div>
+    </div>
+
+    <div class="box">
+      <div class="valign">
+        <div class="container-overwatch">
+          <div class="spinner-large-outside rotate"></div>
+          <div class="spinner-small-outside-2 rotate-2"></div>
+          <div class="spinner-small-outside-3 rotate-3"></div>
+          <div class="spinner-wide-outside rotate-reverse"></div>
+          <div class="overwatch-body"></div>
+          <div class="container-wedge">
+            <div class="smol-overwatch-body"></div>
+            <div class="smol-overwatch-body-highlight"></div>
+          </div>
+          <div class="inner-sprite-left"></div>
+          <div class="inner-sprite-right"></div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

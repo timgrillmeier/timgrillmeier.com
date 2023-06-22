@@ -55,6 +55,7 @@
 
       body {
         background: #b8cfe3;
+        background: linear-gradient(to top right, #758593 0%, #b8cfe3 35%, #b8cfe3 71%, #ebe0d3 100%);
         color: #FFFFFF;
         font-family: 'Heebo', sans-serif;
         margin: 0;
@@ -100,6 +101,7 @@
 /*        background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Overwatch_circle_logo.svg');*/
         background-size: contain;
         background-repeat: no-repeat;
+        opacity: 0.8;
       }
 
       .container-overwatch .spinner-large-outside {
@@ -111,7 +113,7 @@
         left: -35px;
         border-radius: 180px;
         border: 18px solid transparent;
-        border-right: 18px solid orange;
+        border-right: 18px solid #fc8503;
       }
 
       .container-overwatch .spinner-small-outside {
@@ -161,7 +163,7 @@
         top: -225px;
         left: -225px;
         border-radius: 375px;
-        border: 30px solid rgba(255,255,255,0.05);
+        border: 30px solid rgba(255,255,255,0.1);
         border-left: 30px solid transparent;
         border-right: 30px solid transparent;
       }
@@ -232,27 +234,85 @@
         width: 300px;
         height: 300px;
         box-sizing: border-box;
+/*        border: 42px solid #6d767b;*/
+        border-radius: 150px;
+        position: absolute;
+        top: 155px;
+        left: 153px;
+        transform: rotate(0) skewX(351deg) scaleY(cos(0deg));
+      }
+
+      .container-overwatch .container-wedge .smol-overwatch-body .circle {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
         border: 42px solid #6d767b;
         border-radius: 150px;
         position: absolute;
-        top: 153px;
-        left: 153px;
-        transform: rotate(0) skewX(350deg) scaleY(cos(0deg));
-        display: none;
+        transform: rotate(45deg);
       }
 
       .container-overwatch .container-wedge .smol-overwatch-body-highlight {
         width: 300px;
         height: 300px;
         box-sizing: border-box;
-        border: 42px solid transparent;
-        border-top: 42px solid orange;
-        border-left: 42px solid orange;
         border-radius: 150px;
         position: absolute;
-        top: 153px;
+        top: 155px;
         left: 153px;
-        transform: rotate(0) skewX(350deg) scaleY(cos(0deg));
+        transform: rotate(0) skewX(351deg) scaleY(cos(0deg));
+      }
+
+      .container-overwatch .container-wedge .smol-overwatch-body-highlight .circle {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 42px solid transparent;
+        border-top: 42px solid #fc8503;
+        border-radius: 150px;
+        position: absolute;
+        transform: rotate(45deg);
+      }
+
+      .wedge-elements-rotate {
+        width: 100px;
+        animation: wedge-elements-rotate 5s infinite linear;
+      }
+
+      @keyframes wedge-elements-rotate {
+        /* this rotation is on par with the outer loading bar
+        
+        0% {
+          transform: rotate(40deg);
+        }
+        50% {
+          transform: rotate(220deg);
+        }
+        100% {
+          transform: rotate(400deg);
+        }
+        
+        NOTES:
+        - 20% = 1 second
+        - Must travel 144 degrees a second
+
+        */
+
+        0% {
+          transform: rotate(40deg);
+        }
+        25% {
+          transform: rotate(220deg);
+        }
+        37.5% {
+          transform: rotate(310deg);
+        }
+        87.5% {
+          transform: rotate(310deg);
+        }
+        100% {
+          transform: rotate(400deg);
+        }
       }
 
       .inner-sprite-left {
@@ -342,16 +402,16 @@
         width: 200px;
         height: 200px;
         border-radius: 20px;
-        top: 86%;
-        left: 10%;
-        background: #969d9e;
+        top: 76%;
+        left: 20%;
+        background: #fc8503;
         opacity: 0;
         z-index: -1;
         position: absolute;
         animation-delay: 2.5s;
       }
 
-       .container-background .square-4 {
+      .container-background .square-4 {
         width: 80px;
         height: 80px;
         border-radius: 8px;
@@ -375,6 +435,32 @@
         z-index: -1;
         position: absolute;
         animation-delay: 5.5s;
+      }
+
+      .container-background .square-6 {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        top: 40%;
+        left: 40%;
+        background: #fc8503;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 7s;
+      }
+
+      .container-background .square-7 {
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+        top: 12%;
+        left: 20%;
+        background: #969d9e;
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        animation-delay: 3.5s;
       }
 
       .track-slow-left {
@@ -461,6 +547,8 @@
       <div class="square-3 track-slow-left"></div>
       <div class="square-4 track-slow-right"></div>
       <div class="square-5 track-slow-right"></div>
+      <div class="square-6 track-slow-left"></div>
+      <div class="square-7 track-slow-right"></div>
     </div>
 
     <div class="box">
@@ -472,8 +560,8 @@
           <div class="spinner-wide-outside rotate-reverse"></div>
           <div class="overwatch-body"></div>
           <div class="container-wedge">
-            <div class="smol-overwatch-body"></div>
-            <div class="smol-overwatch-body-highlight"></div>
+            <div class="smol-overwatch-body"><div class="circle wedge-elements-rotate"></div></div>
+            <div class="smol-overwatch-body-highlight"><div class="circle wedge-elements-rotate"></div></div>
           </div>
           <div class="inner-sprite-left"></div>
           <div class="inner-sprite-right"></div>
